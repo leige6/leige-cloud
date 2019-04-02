@@ -1,0 +1,25 @@
+server:
+  port: 8700
+spring:
+  security:
+    user:
+      name: leige
+      password: leige
+  application:
+    name: @artifactId@
+  cloud:
+    config:
+      enabled: false
+eureka:
+  instance:
+    hostname: leige-eureka
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://leige:leige@${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    eviction-interval-timer-in-ms: 4000
+    enable-self-preservation: false
+    renewal-percent-threshold: 0.9
